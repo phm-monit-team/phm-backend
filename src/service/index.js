@@ -49,7 +49,7 @@ class Service {
       )
       .then((res) => res.data)
       debug("predict")(`${device_id} predict result`, predictResult)
-    predictResult.type === ERROR_TYPE.NORMAL &&
+    // predictResult.type === ERROR_TYPE.NORMAL &&
       this.send({
         errorStatus: {
           device_id,
