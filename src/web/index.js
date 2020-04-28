@@ -4,7 +4,6 @@ class Controller {
   async reportSensorData(ctx) {
     /** @type {SensorData} */
     const sensorData = ctx.request.body
-    console.log(sensorData)
     await service.store(sensorData)
     ctx.body = {
       msg: 'ok',

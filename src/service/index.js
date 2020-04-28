@@ -33,7 +33,6 @@ class Service {
       format.FE_time.push(i.FE_time)
       format.BA_time.push(i.BA_time)
     })
-    console.log(JSON.stringify(format))
     const predictResult = await axios
       .post(
         PREDICT_URL,
