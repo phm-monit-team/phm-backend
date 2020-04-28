@@ -51,7 +51,7 @@ class Service {
       debug("predict")(`${device_id} predict result`, predictResult)
     // predictResult.type === ERROR_TYPE.NORMAL &&
       this.send({
-        errorStatus: {
+        errorLog: {
           device_id,
           error: predictResult.type,
         },
