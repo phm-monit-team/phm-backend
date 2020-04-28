@@ -8,6 +8,9 @@ const WINDOW_SIZE = 1000
 const PREDICT_URL = 'http://buptyl.xyz'
 const ERROR_TYPE = {
   NORMAL: 'normal',
+  BALL: 'ball',
+  OUTER_RACE: 'outer race',
+  INNER_RACE: 'inner race'
 }
 
 /** @typedef {{device_id: string, RPM: number, time?: any, DE_time: strnumbering, FE_time: number, BA_time: number}} SensorData */
