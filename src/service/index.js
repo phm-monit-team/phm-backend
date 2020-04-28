@@ -1,4 +1,5 @@
 const axios = require('axios').default
+const debug = require('debug')
 const { wss } = require('../wss')
 const SensorData = require('../model/sensorData')
 const ErrorLog = require('../model/errorLog')
@@ -47,6 +48,7 @@ class Service {
         }
       )
       .then((res) => res.data)
+      debug("predict")(`${device_id} predict result`, predictResult)
     predictResult.type === ERROR_TYPE.NORMAL &&
       this.send({
         errorStatus: {
@@ -65,6 +67,7 @@ class Service {
   async store(result) {
     const data = new SensorData(result)
     const device_id = result.device_id
+    debug("report")(`${device_id} receive data`, data)
     this.send({
       dataPoint: data,
     })
@@ -78,6 +81,7 @@ class Service {
     }
     this.windowPointer[device_id]++
     if (this.windowPointer[device_id] >= SKIP_SIZE) {
+      debug("predict")(`${device_id} start predict`)
       this.predict(device_id)
     }
     return
